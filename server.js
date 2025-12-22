@@ -23,12 +23,11 @@ console.log("Loaded ENV Keys:", {
 });
 
 
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
-const RecommendationRoutes = require("./routes/RecommendationRoutes");
-
+import RecommendationRoutes from "./routes/RecommendationRoutes.js"
 
 
 const app = express();
@@ -49,6 +48,13 @@ app.use("/api/recommend",RecommendationRoutes);
 //Test Route
 app.get("/",(req,res) => {
     res.send("Auraverse Backend is running")
+});
+process.on("uncaughtException", (err) => {
+  console.error("UNCAUGHT EXCEPTION:", err);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.error("UNHANDLED PROMISE:", err);
 });
 
 const PORT = process.env.PORT || 5000;
