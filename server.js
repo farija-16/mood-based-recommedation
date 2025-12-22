@@ -23,11 +23,12 @@ console.log("Loaded ENV Keys:", {
 });
 
 
-import express from "express";
-import mongoose from "mongoose";
-import cors from "cors";
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
 import authRoutes from "./routes/authRoutes.js";
-import RecommendationRoutes from "./routes/RecommendationRoutes.js"
+const RecommendationRoutes = require("./routes/RecommendationRoutes");
+
 
 
 const app = express();
