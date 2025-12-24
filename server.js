@@ -17,12 +17,6 @@ app.get("/", (req, res) => {
   res.send("Auraverse Backend is running");
 });
 
-/* ---------- PING TEST ROUTES ---------- */
-router.get("/ping", (req, res) => {
-  res.json({ message: "recommend route alive" });
-});
-
-
 app.get("/api-test", (req, res) => {
   res.json({ ok: true });
 });
