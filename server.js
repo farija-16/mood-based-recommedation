@@ -34,6 +34,11 @@ app.use((req, res) => {
   });
 });
 
+app.get("/api-test", (req, res) => {
+  res.json({ message: "API TEST WORKS" });
+});
+
+
 /* ------------------ DATABASE ------------------ */
 mongoose
   .connect(process.env.MONGO_URI)
