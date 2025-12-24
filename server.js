@@ -40,6 +40,11 @@ mongoose.connect(process.env.MONGO_URI)
 .catch((err) => console.error("MongoDB Connection Error:",err));
 
 console.log("TYPE OF RecommendationRoutes:", typeof RecommendationRoutes);
+app.get("/__ping__", (req, res) => {
+  res.json({ message: "APP LEVEL PING WORKS" });
+});
+console.log("Mounting /api/recommend routes");
+
 
 //Routes 
 app.use("/api/auth", authRoutes);
