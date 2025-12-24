@@ -1,5 +1,4 @@
 import express from "express";
-import { getRecommendations } from "../controllers/recommendationController.js";
 
 const router = express.Router();
 
@@ -7,8 +6,19 @@ router.get("/ping", (req, res) => {
   res.json({ message: "recommend route alive" });
 });
 
-router.get("/all", getRecommendations);
-router.get("/mood-aesthetic", getRecommendations);
-router.post("/", getRecommendations);
+router.get("/all", (req, res) => {
+  res.json({ ok: true, source: "all" });
+});
+
+router.get("/mood-aesthetic", (req, res) => {
+  res.json({ ok: true, source: "mood-aesthetic" });
+});
+
+router.post("/", (req, res) => {
+  res.json({
+    ok: true,
+    body: req.body,
+  });
+});
 
 export default router;
