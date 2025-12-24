@@ -39,6 +39,8 @@ mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB Connected Successfully"))
 .catch((err) => console.error("MongoDB Connection Error:",err));
 
+console.log("TYPE OF RecommendationRoutes:", typeof RecommendationRoutes);
+
 //Routes 
 app.use("/api/auth", authRoutes);
 
