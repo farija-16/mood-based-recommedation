@@ -1,18 +1,16 @@
-console.log("RecommendationRoutes file loaded");
 import express from "express";
 import { getRecommendations } from "../controllers/recommendationController.js";
 
-
 const router = express.Router();
 
-// health check for this router
-router.get("/ping", (req, res) => {
+router.get("/api/recommend/ping", (req, res) => {
   res.json({ message: "recommend route alive" });
 });
 
-// main routes
-router.get("/all", getRecommendations);
-router.get("/mood-aesthetic", getRecommendations);
-router.post("/", getRecommendations);
+router.get("/api/recommend/all", getRecommendations);
+
+router.get("/api/recommend/mood-aesthetic", getRecommendations);
+
+router.post("/api/recommend", getRecommendations);
 
 export default router;

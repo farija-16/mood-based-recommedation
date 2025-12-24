@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 
 /* ------------------ ROUTE MOUNTING (CRITICAL ORDER) ------------------ */
 console.log("Mounting /api/recommend routes");
-app.use("/api/recommend", RecommendationRoutes);
+app.use(RecommendationRoutes);
 
 console.log("Mounting /api/auth routes");
 app.use("/api/auth", authRoutes);
