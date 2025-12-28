@@ -3,29 +3,15 @@ import { getRecommendations } from "../controllers/recommendationController.js";
 
 const router = express.Router();
 
-//  HARD PROOF ROUTE
+// 1. Health Check (Keep this to verify the server is alive)
 router.get("/ping", (req, res) => {
   res.json({ message: "recommend route alive" });
 });
 
-//  SIMPLE TEST ROUTES (NO LOGIC)
-router.get("/all", (req, res) => {
-  res.json({ test: "ALL route hit" });
-});
-
-router.get("/mood-aesthetic", (req, res) => {
-  res.json({
-    test: "MOOD-AESTHETIC route hit",
-    mood: req.query.mood,
-    aesthetic: req.query.aesthetic
-  });
-});
-
-router.post("/", (req, res) => {
-  res.json({
-    test: "POST route hit",
-    body: req.body
-  });
-});
+// 2. THE REAL ROUTES
+// These now all point to getRecommendations instead of those res.json test blocks
+router.get("/mood-aesthetic", getRecommendations);
+router.get("/all", getRecommendations);
+router.post("/", getRecommendations);
 
 export default router;
