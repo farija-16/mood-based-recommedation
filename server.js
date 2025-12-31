@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-
+import authRoutes from "./routes/authRoutes.js";
 // Routes
 import recommendationRoutes from "./routes/recommendation.routes.js";
 
@@ -27,9 +27,11 @@ app.get("/api-test", (req, res) => {
   res.json({ message: "API test working" });
 });
 
+
 /* =========================
    ROUTES
 ========================= */
+app.use("/api/auth", authRoutes);
 console.log("Mounting /api/recommend routes");
 app.use("/api/recommend", recommendationRoutes);
 
