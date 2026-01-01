@@ -7,6 +7,7 @@ const router = express.Router();
 //Register 
 
 router.post("/register",async(req,res) => {
+    console.log("REGISTER HIT", req.body);
     console.log("Incoming registration data:",req.body);
     
     try {
