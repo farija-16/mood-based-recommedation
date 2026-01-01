@@ -31,6 +31,7 @@ app.get("/api-test", (req, res) => {
 /* =========================
    ROUTES
 ========================= */
+console.log("AUTH ROUTES LOADED");
 app.use("/api/auth", authRoutes);
 console.log("Mounting /api/recommend routes");
 app.use("/api/recommend", recommendationRoutes);
